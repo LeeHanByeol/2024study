@@ -17,10 +17,8 @@ class Solution {
                     answer++;       //방 추가
                 }
             }
-            
             q.add(r);            //입실
         }
-        
         
         return answer;
     }
@@ -36,17 +34,8 @@ class Solution {
             times[i][1] = Integer.parseInt(book_time[i][1].substring(0,2)) * 60 + Integer.parseInt(book_time[i][1].substring(3)) + 10;            
         }
         
-        //Bubble Sort: 시작시각 기준 오름차순
-        for(int i = 0; i < times.length; i++){
-            for(int j = 0; j < times.length - i - 1; j++){
-                if(times[j][0] > times[j+1][0]){
-                    int[] temp = times[j];
-                    times[j] = times[j+1];
-                    times[j+1] = temp;
-                }
-            }
-        }
-        
+        Arrays.sort(times, (a,b) -> a[0]-b[0]);
+
         return times;        
     }
 }
